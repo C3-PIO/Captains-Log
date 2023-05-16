@@ -37,6 +37,15 @@ app.get('/logs/new', (req, res)=>{
 // Destroy DELETE /things/:id
 // Update PUT /things/:id
 // Create POST /things
+app.post('/logs', (req, res)=>{
+    if (req.body.shipIsBroken === 'on'){
+        req.body.shipIsBroken = true
+    } else {
+        req.body.shipIsBroken = false
+    }
+    res.send(req.body)
+})
+
 // Edit GET /things/:id/edit
 // Show GET /things/:id
 
