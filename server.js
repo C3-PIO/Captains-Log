@@ -31,6 +31,10 @@ const Logs = require('./models/logs')
 // Routes
 
 // Index GET /things
+app.get('/logs', async (req, res)=>{
+    const allLogs = await Logs.find({})
+    res.render('Index', {logs:allLogs})
+})
 // New GET /things/new
 app.get('/logs/new', (req, res)=>{
     res.render('New')
