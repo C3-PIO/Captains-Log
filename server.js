@@ -26,6 +26,7 @@ app.use((req, res, next) => {
 app.use(express.urlencoded({ extended: false }));
 
 // Data
+const Logs = require('./models/logs')
 
 // Routes
 
@@ -37,13 +38,18 @@ app.get('/logs/new', (req, res)=>{
 // Destroy DELETE /things/:id
 // Update PUT /things/:id
 // Create POST /things
-app.post('/logs', (req, res)=>{
+app.post('/logs', async (req, res)=>{
     if (req.body.shipIsBroken === 'on'){
         req.body.shipIsBroken = true
     } else {
         req.body.shipIsBroken = false
     }
-    res.send(req.body)
+    try {
+        await Logs.create(req.body),
+        res.redirect(`/logs/Show`)
+    } catch (error) {
+        console.log ('error')
+    }
 })
 
 // Edit GET /things/:id/edit

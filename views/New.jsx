@@ -4,10 +4,11 @@ class New extends React.Component {
     render(){
         return(
             <div>
+                <h1>New Logs Page</h1>
                 <form action='/logs' method="POST">
                     Title: <input type='text' name="title"></input><br/>
                     Entry: <input type='textarea'name="entry"></input><br/>
-                    Ship is Broken?: <input type='checkbox' name="shipIsBroken"></input><br/>
+                    Ship is Broken: <input type='checkbox' name="shipIsBroken"></input><br/>
                     <input type='submit' name="" value="Submit"></input>
                 </form>
             </div>
