@@ -58,7 +58,10 @@ app.post('/logs', async (req, res)=>{
 
 // Edit GET /things/:id/edit
 // Show GET /things/:id
-
+app.get('/logs/:id', async (req, res)=>{
+    const log = await Logs.findById(req.params.id)
+    res.render("Show", { log: log })
+})
 // Listen
 app.listen(port, ()=>{
     console.log(`Listening on port ${port}`)

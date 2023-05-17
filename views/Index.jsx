@@ -7,11 +7,15 @@ class Index extends React.Component {
         <h1>Logs Index Page</h1>
         <ul>
           {this.props.logs.map((log, i) => {
-            return <li key={i}>Title: {log.title}</li>;
+            return (
+              <li key={i}>
+                Title: <a href={`/logs/${log.id}`}>{log.title}</a>
+              </li>
+            );
           })}
         </ul>
         <nav>
-          <a href="/flights/new">Create a New Log</a>
+          <a href="/logs/new">Create a New Log</a>
         </nav>
       </div>
     );
